@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+a {
+  text-decoration: none;
+}
+.navAvatar {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+.navAvatar img {
+  width: 60px;
+  border-radius: 10px;
+}

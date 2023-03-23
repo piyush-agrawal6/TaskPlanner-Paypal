@@ -1,0 +1,22 @@
+.Container {
+  display: flex;
+  background: #15b684;
+}
+.Container > div:nth-child(1) {
+  width: 160px;
+  height: 100vh;
+  background: #15b684;
+}
+.Container > div:nth-child(2) {
+  width: calc(100% - 160px);
+  height: 100vh;
+  background: rgb(247, 247, 247);
+  border-radius: 50px 0 0 50px;
+}
+.section {
+  overflow: hidden;
+}
+.sectionNav {
+  padding: 1.5rem;
+  background-color: rgb(227, 248, 255);
+}
