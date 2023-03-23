@@ -1,0 +1,57 @@
+.homeSection {
+  width: calc(100vw - 140px);
+  height: calc(100vh - 76px);
+  padding: 2rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.homeSection > div {
+  display: inline-block;
+  width: 300px;
+  height: 100%;
+  margin-right: 25px;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 4px;
+}
+.homeSection > div > div {
+  background-color: rgba(232, 232, 232, 0.597);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.homeSection > div > div:nth-child(1) {
+  background-color: rgba(197, 235, 255, 0.597);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+.homeTask > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.homeTask > div > button {
+  background-color: rgba(94, 94, 254, 0.79);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.homeTask > div > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.homeTask > p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.homeTask > img {
+  width: 30px;
+  border-radius: 50%;
+}
