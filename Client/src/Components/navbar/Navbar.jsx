@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { SiTask } from "react-icons/si";
+import { IoMdLogOut } from "react-icons/io";
+import { BiCommentAdd, BiBookAdd } from "react-icons/bi";
 const Navbar = () => {
   return (
     <div className="navbar">
@@ -14,6 +17,28 @@ const Navbar = () => {
           <p>@masai</p>
         </div>
       </Link>
+      <Link to="/home">
+        <div className="navIcons nav">
+          <SiTask />
+          <p>All Tasks</p>
+        </div>
+      </Link>
+      <Link to="/task">
+        <div className="navIcons">
+          <BiCommentAdd />
+          <p>Add Task</p>
+        </div>
+      </Link>
+      <Link to="/sprint">
+        <div className="navIcons">
+          <BiBookAdd />
+          <p>Add Sprint</p>
+        </div>
+      </Link>
+      <div className="navIcons">
+        <IoMdLogOut />
+        <p>Logout</p>
+      </div>
     </div>
   );
 };

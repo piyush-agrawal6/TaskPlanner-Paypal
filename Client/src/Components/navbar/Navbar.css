@@ -17,3 +17,16 @@ a {
   width: 60px;
   border-radius: 10px;
 }
+.navIcons {
+  text-align: center;
+  color: white;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+.nav {
+  padding-top: 3rem;
+}
+.navIcons svg {
+  color: rgba(255, 255, 255, 0.807);
+  font-size: 30px;
+}
