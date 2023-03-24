@@ -10,6 +10,7 @@ import {
   postTask,
 } from "../../Redux/auth/action";
 import "./Task.css";
+
 const Task = () => {
   const auth = useSelector((store) => store.auth);
   const taskData = {
@@ -26,9 +27,11 @@ const Task = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [taskFormData, setTaskFormdata] = useState(taskData);
   const [sprintFormData, setSprintFormdata] = useState(sprintData);
+
   const handleTaskChange = (e) => {
     setTaskFormdata({ ...taskFormData, [e.target.name]: e.target.value });
   };
+  
   const handleTaskSubmit = (e) => {
     e.preventDefault();
     setLoading(true);

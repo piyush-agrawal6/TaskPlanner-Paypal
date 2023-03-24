@@ -21,7 +21,6 @@
 .loginDetail {
   padding: 2rem 4rem;
   width: 50%;
-  /* height: 300px; */
 }
 .loginDetail > div:nth-child(1) {
   display: flex;
@@ -64,6 +63,9 @@ span {
   font-weight: 700;
   cursor: pointer;
 }
+
+/* media queries */
+
 @media (max-width: 1000px) {
   .loginContainer {
     width: 500px;

@@ -3,6 +3,10 @@
   height: calc(100vh - 76px);
   padding: 2rem;
   overflow: scroll;
+  text-align: center;
+}
+homeSection > h3 {
+  text-align: center;
 }
 .homeSection > div {
   display: inline-block;
@@ -13,6 +17,10 @@
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 4px;
   overflow: scroll;
+  text-align: left;
+}
+.homeSection > div::-webkit-scrollbar {
+  display: none;
 }
 .homeSection > div > div {
   background-color: rgba(221, 221, 221, 0.597);

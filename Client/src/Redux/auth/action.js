@@ -21,7 +21,6 @@ export const checkOTP = (form) => async (dispatch) => {
       `https://impossible-slippers-colt.cyclic.app/user/register`,
       form
     );
-    console.log(data.data);
     if (data.data.message === "user registered successfully") {
       dispatch({
         type: types.REGISTER_USER_SUCCESS,
@@ -42,7 +41,7 @@ export const checkOTP = (form) => async (dispatch) => {
   }
 };
 
-//Register User
+//Register User by google sign in
 export const googleRegister = (form) => async (dispatch) => {
   try {
     const data = await axios.post(
@@ -63,27 +62,22 @@ export const googleRegister = (form) => async (dispatch) => {
         },
       });
     }
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const editUser = (userData, id) => async (dispatch) => {
+//edit user
+export const editUser = (id, userData) => async (dispatch) => {
   try {
-    const data = await axios.put(
+    await axios.put(
       `https://impossible-slippers-colt.cyclic.app/user/update?id=${id}`,
       userData
     );
-    console.log(data.data);
     dispatch({
       type: types.UPDATE_USER_SUCCESS,
-      payload: {
-        token: data.data.token,
-        message: data.data.message,
-        user: data.data.user,
-      },
+      payload: userData.organization,
     });
   } catch (error) {
     console.log(error);
@@ -92,7 +86,6 @@ export const editUser = (userData, id) => async (dispatch) => {
 
 export const authLogin = (data) => async (dispatch) => {
   try {
-    dispatch({ type: types.LOGIN_USER_REQUEST });
     const res = await axios.post(
       "https://impossible-slippers-colt.cyclic.app/user/login",
       data
@@ -113,7 +106,7 @@ export const authLogout = () => async (dispatch) => {
   }
 };
 
-// Task Operations
+// Task and sprint Operations
 
 //Create task
 export const postTask = (FormData) => async (dispatch) => {
@@ -135,7 +128,6 @@ export const postSprint = (FormData) => async (dispatch) => {
       `https://impossible-slippers-colt.cyclic.app/sprint`,
       FormData
     );
-    console.log(data.data.sprint);
     dispatch({ type: types.ADD_SPRINT_SUCCESS, payload: data.data.sprint });
   } catch (error) {
     console.log(error);

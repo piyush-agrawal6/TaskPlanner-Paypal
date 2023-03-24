@@ -14,7 +14,6 @@ const Otp = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
   const auth = useSelector((store) => store.auth);
-  console.log(auth);
   const navigate = useNavigate();
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

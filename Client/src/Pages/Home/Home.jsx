@@ -28,23 +28,29 @@ const Home = () => {
           <h3>All Tasks</h3>
         </div>
         <div className="homeSection">
-          {sprint.map((elem, i) => {
-            return (
-              <div key={i} className="homeSprint">
-                <div>
-                  <h4>{elem.name}</h4>
+          {sprint.length > 0 ? (
+            sprint.map((elem, i) => {
+              return (
+                <div key={i} className="homeSprint">
                   <div>
-                    <GiTrashCan />
+                    <h4>{elem.name}</h4>
+                    <div>
+                      <GiTrashCan />
+                    </div>
                   </div>
+                  {task
+                    .filter((item) => item.sprint === elem.name)
+                    .map((list, j) => {
+                      return <Task key={j} task={list} />;
+                    })}
                 </div>
-                {task
-                  .filter((item) => item.sprint === elem.name)
-                  .map((list, j) => {
-                    return <Task key={j} task={list} />;
-                  })}
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <h3>
+              Please add some sprints and tasks to get stared. Thank you !
+            </h3>
+          )}
         </div>
       </div>
     </div>
