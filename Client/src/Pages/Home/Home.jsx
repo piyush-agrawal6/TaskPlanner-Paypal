@@ -17,7 +17,6 @@ const Home = () => {
             <div>
               <h4>Bugs</h4>
               <div>
-                <MdModeEditOutline />
                 <GiTrashCan />
               </div>
             </div>
@@ -31,7 +30,6 @@ const Home = () => {
             <div>
               <h4>Features</h4>
               <div>
-                <MdModeEditOutline />
                 <GiTrashCan />
               </div>
             </div>
@@ -45,7 +43,6 @@ const Home = () => {
             <div>
               <h4>Story</h4>
               <div>
-                <MdModeEditOutline />
                 <GiTrashCan />
               </div>
             </div>
@@ -59,7 +56,6 @@ const Home = () => {
             <div>
               <h4>Completed</h4>
               <div>
-                <MdModeEditOutline />
                 <GiTrashCan />
               </div>
             </div>
@@ -69,20 +65,7 @@ const Home = () => {
             <Task />
             <Task />
           </div>
-          <div className="homeSprint">
-            <div>
-              <h4>Completed</h4>
-              <div>
-                <MdModeEditOutline />
-                <GiTrashCan />
-              </div>
-            </div>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-          </div>
+         
         </div>
       </div>
     </div>
