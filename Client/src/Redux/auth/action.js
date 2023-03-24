@@ -29,6 +29,9 @@ export const checkOTP = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
+          task: data.data.task,
+          sprint: data.data.sprint,
+          allUsers: data.data.allUsers,
         },
       });
     }
@@ -52,9 +55,13 @@ export const googleRegister = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
+          task: data.data.task,
+          sprint: data.data.sprint,
+          allUsers: data.data.allUsers,
         },
       });
     }
+    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -103,7 +110,6 @@ export const authLogout = () => async (dispatch) => {
     console.log(error);
   }
 };
-
 
 //get cart products
 export const getCartProducts = (id) => async (dispatch) => {

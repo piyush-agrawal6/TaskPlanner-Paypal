@@ -1,10 +1,15 @@
 import React from "react";
 import Navbar from "../../Components/navbar/Navbar";
-import { MdModeEditOutline } from "react-icons/md";
 import { GiTrashCan } from "react-icons/gi";
 import "./Home.css";
 import Task from "../../Components/Task/Task";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Home = () => {
+  const auth = useSelector((store) => store.auth);
+  if (!auth.data.isAuthenticated) {
+    return <Navigate to="/" />;
+  }
   return (
     <div className="Container">
       <Navbar />
@@ -65,7 +70,6 @@ const Home = () => {
             <Task />
             <Task />
           </div>
-         
         </div>
       </div>
     </div>

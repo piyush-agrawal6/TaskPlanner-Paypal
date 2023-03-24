@@ -7,6 +7,9 @@ const initialState = {
     isAuthenticated: !!TOKEN,
     token: TOKEN,
     user: JSON.parse(localStorage.getItem("user")) || null,
+    task: [],
+    sprint: [],
+    allUsers: [],
   },
 };
 export function authReducer(state = initialState, { type, payload }) {
@@ -51,6 +54,9 @@ export function authReducer(state = initialState, { type, payload }) {
           token: payload.token,
           user: payload.user,
         },
+        task: payload.task,
+        sprint: payload.sprint,
+        allUsers: payload.allUsers,
       };
     case types.UPDATE_USER_SUCCESS:
       return {

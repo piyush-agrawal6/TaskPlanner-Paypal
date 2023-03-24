@@ -12,7 +12,6 @@ const Login = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
   const auth = useSelector((store) => store.auth);
-  console.log(auth.data.isAuthenticated);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleFormChange = (e) => {
