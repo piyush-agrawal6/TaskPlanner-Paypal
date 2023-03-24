@@ -7,7 +7,7 @@
   gap: 30px;
 }
 .taskForm > form {
-       width: 300px;
+  width: 300px;
   padding: 1.5rem;
   background-color: white;
   border-radius: 10px;
@@ -31,4 +31,5 @@ select {
   background: #47d4a7;
   color: white;
   font-weight: 600;
+  cursor: pointer;
 }

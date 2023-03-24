@@ -7,7 +7,7 @@ const Task = () => {
       <Navbar />
       <div className="section">
         <div className="sectionNav">
-          <h3>Add Task</h3>
+          <h3>Add Task/Sprint</h3>
         </div>
         <div className="taskForm">
           <form>

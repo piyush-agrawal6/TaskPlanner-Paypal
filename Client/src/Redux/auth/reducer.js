@@ -8,8 +8,6 @@ const initialState = {
     token: TOKEN,
     user: JSON.parse(localStorage.getItem("user")) || null,
   },
-  cart: [],
-  order: [],
 };
 export function authReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -53,8 +51,6 @@ export function authReducer(state = initialState, { type, payload }) {
           token: payload.token,
           user: payload.user,
         },
-        cart: payload.cart,
-        order: payload.order,
       };
     case types.UPDATE_USER_SUCCESS:
       return {

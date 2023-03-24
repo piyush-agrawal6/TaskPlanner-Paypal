@@ -5,7 +5,7 @@ import axios from "axios";
 export const registerUser = (userData) => async (dispatch) => {
   try {
     const data = await axios.post(
-      `https://shy-lion-snaps.cyclic.app/user/new`,
+      `https://impossible-slippers-colt.cyclic.app/user/new`,
       userData
     );
     return data.data;
@@ -18,7 +18,7 @@ export const registerUser = (userData) => async (dispatch) => {
 export const checkOTP = (form) => async (dispatch) => {
   try {
     const data = await axios.post(
-      `https://shy-lion-snaps.cyclic.app/user/register`,
+      `https://impossible-slippers-colt.cyclic.app/user/register`,
       form
     );
     console.log(data.data);
@@ -29,8 +29,6 @@ export const checkOTP = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
-          cart: data.data.cart,
-          order: data.data.order,
         },
       });
     }
@@ -44,7 +42,7 @@ export const checkOTP = (form) => async (dispatch) => {
 export const googleRegister = (form) => async (dispatch) => {
   try {
     const data = await axios.post(
-      `https://shy-lion-snaps.cyclic.app/user/googleregister`,
+      `https://impossible-slippers-colt.cyclic.app/user/googleregister`,
       form
     );
     if (data.data.message === "user registered successfully") {
@@ -54,12 +52,9 @@ export const googleRegister = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
-          cart: data.data.cart,
-          order: data.data.order,
         },
       });
     }
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -69,7 +64,7 @@ export const googleRegister = (form) => async (dispatch) => {
 export const editUser = (userData, id) => async (dispatch) => {
   try {
     const data = await axios.put(
-      `https://shy-lion-snaps.cyclic.app/user/update?id=${id}`,
+      `https://impossible-slippers-colt.cyclic.app/user/update?id=${id}`,
       userData
     );
     console.log(data.data);
@@ -90,7 +85,7 @@ export const authLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_USER_REQUEST });
     const res = await axios.post(
-      "https://shy-lion-snaps.cyclic.app/user/login",
+      "https://impossible-slippers-colt.cyclic.app/user/login",
       data
     );
     return res.data;
@@ -109,7 +104,6 @@ export const authLogout = () => async (dispatch) => {
   }
 };
 
-//Cart Operations
 
 //get cart products
 export const getCartProducts = (id) => async (dispatch) => {
