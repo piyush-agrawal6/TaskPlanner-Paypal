@@ -1,0 +1,35 @@
+.homeTask > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.homeTask > div:nth-child(1) button {
+  background-color: rgba(94, 94, 254, 0.79);
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.homeTask > div:nth-child(1) div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.homeTask > p {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.homeTask img {
+  width: 30px;
+  border-radius: 50%;
+}
+.homeTask > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
