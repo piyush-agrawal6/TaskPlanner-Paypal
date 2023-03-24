@@ -111,33 +111,69 @@ export const authLogout = () => async (dispatch) => {
   }
 };
 
-//get cart products
-export const getCartProducts = (id) => async (dispatch) => {
+// Task Operations
+
+//Create task
+export const postTask = (FormData) => async (dispatch) => {
   try {
-    const data = await axios.get(
-      `https://shy-lion-snaps.cyclic.app/cart?userId=${id}`
+    const data = await axios.post(
+      `https://impossible-slippers-colt.cyclic.app/task`,
+      FormData
     );
-    dispatch({
-      type: types.GET_CART_SUCCESS,
-      payload: data.data.message,
-    });
+    dispatch({ type: types.ADD_TASK_SUCCESS, payload: data.data.task });
   } catch (error) {
     console.log(error);
   }
 };
 
-//add to cart
-export const addToCart = (cartData) => async (dispatch) => {
+//Create sprint
+export const postSprint = (FormData) => async (dispatch) => {
   try {
     const data = await axios.post(
-      `https://shy-lion-snaps.cyclic.app/cart`,
-      cartData
+      `https://impossible-slippers-colt.cyclic.app/sprint`,
+      FormData
     );
-    dispatch({
-      type: types.ADD_TO_CART_SUCCESS,
-      payload: cartData,
-    });
-    console.log(data.data);
+    console.log(data.data.sprint);
+    dispatch({ type: types.ADD_SPRINT_SUCCESS, payload: data.data.sprint });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//get task
+export const getTask = (organization) => async (dispatch) => {
+  try {
+    const data = await axios.get(
+      `https://impossible-slippers-colt.cyclic.app/task?organization=${organization}`
+    );
+    console.log(data.data.Tasks);
+    dispatch({ type: types.GET_TASK_SUCCESS, payload: data.data.Tasks });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//get sprint
+export const getSprint = (organization) => async (dispatch) => {
+  try {
+    const data = await axios.get(
+      `https://impossible-slippers-colt.cyclic.app/sprint?organization=${organization}`
+    );
+    console.log(data.data.Sprints);
+    dispatch({ type: types.GET_SPRINT_SUCCESS, payload: data.data.Sprints });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//get assignees
+export const getAssignee = (organization) => async (dispatch) => {
+  try {
+    const data = await axios.get(
+      `https://impossible-slippers-colt.cyclic.app/user?organization=${organization}`
+    );
+    console.log(data.data.user);
+    dispatch({ type: types.GET_USER_SUCCESS, payload: data.data.user });
   } catch (error) {
     console.log(error);
   }

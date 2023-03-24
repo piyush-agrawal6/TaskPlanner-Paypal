@@ -82,11 +82,23 @@ export function authReducer(state = initialState, { type, payload }) {
           user: null,
         },
       };
-    case types.GET_CART_SUCCESS: {
-      return { ...state, cart: payload };
+    // case types.GET_CART_SUCCESS: {
+    //   return { ...state, cart: payload };
+    // }
+    case types.ADD_TASK_SUCCESS: {
+      return { ...state, task: [...state.task, payload] };
     }
-    case types.ADD_TO_CART_SUCCESS: {
-      return { ...state, cart: [...state.cart, payload] };
+    case types.ADD_SPRINT_SUCCESS: {
+      return { ...state, sprint: [...state.sprint, payload] };
+    }
+    case types.GET_SPRINT_SUCCESS: {
+      return { ...state, sprint: payload };
+    }
+    case types.GET_USER_SUCCESS: {
+      return { ...state, allUsers: payload };
+    }
+    case types.GET_TASK_SUCCESS: {
+      return { ...state, task: payload };
     }
     default:
       return state;
