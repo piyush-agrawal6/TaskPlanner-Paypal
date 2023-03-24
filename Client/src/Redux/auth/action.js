@@ -29,6 +29,7 @@ export const checkOTP = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
+          organization: data.data.user.organization,
           task: data.data.task,
           sprint: data.data.sprint,
           allUsers: data.data.allUsers,
@@ -55,6 +56,7 @@ export const googleRegister = (form) => async (dispatch) => {
           token: data.data.token,
           message: data.data.message,
           user: data.data.user,
+          organization: data.data.user.organization,
           task: data.data.task,
           sprint: data.data.sprint,
           allUsers: data.data.allUsers,
@@ -146,7 +148,6 @@ export const getTask = (organization) => async (dispatch) => {
     const data = await axios.get(
       `https://impossible-slippers-colt.cyclic.app/task?organization=${organization}`
     );
-    console.log(data.data.Tasks);
     dispatch({ type: types.GET_TASK_SUCCESS, payload: data.data.Tasks });
   } catch (error) {
     console.log(error);
@@ -159,7 +160,6 @@ export const getSprint = (organization) => async (dispatch) => {
     const data = await axios.get(
       `https://impossible-slippers-colt.cyclic.app/sprint?organization=${organization}`
     );
-    console.log(data.data.Sprints);
     dispatch({ type: types.GET_SPRINT_SUCCESS, payload: data.data.Sprints });
   } catch (error) {
     console.log(error);
@@ -172,7 +172,6 @@ export const getAssignee = (organization) => async (dispatch) => {
     const data = await axios.get(
       `https://impossible-slippers-colt.cyclic.app/user?organization=${organization}`
     );
-    console.log(data.data.user);
     dispatch({ type: types.GET_USER_SUCCESS, payload: data.data.user });
   } catch (error) {
     console.log(error);

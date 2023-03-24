@@ -3,21 +3,19 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { SiTask } from "react-icons/si";
 import { IoMdLogOut } from "react-icons/io";
-import { BiCommentAdd, BiBookAdd } from "react-icons/bi";
+import { BiCommentAdd } from "react-icons/bi";
 import { authLogout } from "../../Redux/auth/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const Navbar = () => {
+  const auth = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   return (
     <div className="navbar">
       <Link>
         <div className="navAvatar">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQaSAPof1LWjELD7l4LgoQNu_zEkIIqD2-vNHfnzLGyw&usqp=CAU&ec=48600112"
-            alt="avatar"
-          />
-          <p>Piyush</p>
-          <p>@masai</p>
+          <img src={auth?.data.user.avatar} alt="avatar" />
+          <p>{auth?.data.user.name}</p>
+          <p>@{auth?.data.user.organization}</p>
         </div>
       </Link>
       <Link to="/home">
@@ -35,6 +33,7 @@ const Navbar = () => {
       <div
         className="navIcons"
         onClick={() => {
+          // <Navigate to="/" />;
           dispatch(authLogout());
         }}
       >

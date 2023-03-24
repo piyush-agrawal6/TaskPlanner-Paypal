@@ -6,6 +6,7 @@ const initialState = {
   data: {
     isAuthenticated: !!TOKEN,
     token: TOKEN,
+    organization: "default",
     user: JSON.parse(localStorage.getItem("user")) || null,
     task: [],
     sprint: [],
@@ -57,6 +58,7 @@ export function authReducer(state = initialState, { type, payload }) {
         task: payload.task,
         sprint: payload.sprint,
         allUsers: payload.allUsers,
+        organization: payload.organization,
       };
     case types.UPDATE_USER_SUCCESS:
       return {
@@ -78,13 +80,8 @@ export function authReducer(state = initialState, { type, payload }) {
         ...state,
         data: {
           isAuthenticated: false,
-          token: null,
-          user: null,
         },
       };
-    // case types.GET_CART_SUCCESS: {
-    //   return { ...state, cart: payload };
-    // }
     case types.ADD_TASK_SUCCESS: {
       return { ...state, task: [...state.task, payload] };
     }

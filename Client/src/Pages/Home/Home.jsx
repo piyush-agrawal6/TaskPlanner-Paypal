@@ -8,12 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSprint, getTask } from "../../Redux/auth/action";
 const Home = () => {
   const auth = useSelector((store) => store.auth);
+  const task = useSelector((store) => store.auth.task);
+  const sprint = useSelector((store) => store.auth.sprint);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(getTask(auth.data.user.organization));
-    dispatch(getSprint(auth.data.user.organization));
-  }, [dispatch, auth.data.user.organization]);
+    dispatch(getTask(auth?.organization));
+    dispatch(getSprint(auth?.organization));
+  }, [dispatch, auth?.organization]);
 
   if (!auth.data.isAuthenticated) {
     return <Navigate to="/" />;
@@ -27,58 +28,23 @@ const Home = () => {
           <h3>All Tasks</h3>
         </div>
         <div className="homeSection">
-          <div className="homeSprint">
-            <div>
-              <h4>Bugs</h4>
-              <div>
-                <GiTrashCan />
+          {sprint.map((elem, i) => {
+            return (
+              <div key={i} className="homeSprint">
+                <div>
+                  <h4>{elem.name}</h4>
+                  <div>
+                    <GiTrashCan />
+                  </div>
+                </div>
+                {task
+                  .filter((item) => item.sprint === elem.name)
+                  .map((list, j) => {
+                    return <Task key={j} task={list} />;
+                  })}
               </div>
-            </div>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-          </div>
-          <div className="homeSprint">
-            <div>
-              <h4>Features</h4>
-              <div>
-                <GiTrashCan />
-              </div>
-            </div>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-          </div>
-          <div className="homeSprint">
-            <div>
-              <h4>Story</h4>
-              <div>
-                <GiTrashCan />
-              </div>
-            </div>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-          </div>
-          <div className="homeSprint">
-            <div>
-              <h4>Completed</h4>
-              <div>
-                <GiTrashCan />
-              </div>
-            </div>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>

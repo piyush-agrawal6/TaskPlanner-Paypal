@@ -91,9 +91,9 @@ const Task = () => {
   };
 
   useEffect(() => {
-    dispatch(getSprint(auth.data.user.organization));
-    dispatch(getAssignee(auth.data.user.organization));
-  }, [auth.data.user.organization, dispatch]);
+    dispatch(getSprint(auth.organization));
+    dispatch(getAssignee(auth.organization));
+  }, [auth.organization, dispatch]);
 
   if (!auth.data.isAuthenticated) {
     return <Navigate to="/" />;

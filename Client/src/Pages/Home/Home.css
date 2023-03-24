@@ -2,9 +2,7 @@
   width: calc(100vw - 140px);
   height: calc(100vh - 76px);
   padding: 2rem;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  white-space: nowrap;
+  overflow: scroll;
 }
 .homeSection > div {
   display: inline-block;
@@ -14,10 +12,7 @@
   border-radius: 10px;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 4px;
-  overflow-y: scroll;
-}
-.homeSection > div::-webkit-scrollbar {
-  display: none;
+  overflow: scroll;
 }
 .homeSection > div > div {
   background-color: rgba(221, 221, 221, 0.597);
