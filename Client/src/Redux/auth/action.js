@@ -84,6 +84,7 @@ export const editUser = (id, userData) => async (dispatch) => {
   }
 };
 
+//login
 export const authLogin = (data) => async (dispatch) => {
   try {
     const res = await axios.post(
@@ -96,6 +97,7 @@ export const authLogin = (data) => async (dispatch) => {
   }
 };
 
+//logout
 export const authLogout = () => async (dispatch) => {
   try {
     dispatch({
@@ -165,6 +167,30 @@ export const getAssignee = (organization) => async (dispatch) => {
       `https://impossible-slippers-colt.cyclic.app/user?organization=${organization}`
     );
     dispatch({ type: types.GET_USER_SUCCESS, payload: data.data.user });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//delete sprint
+export const deleteSprint = (id) => async (dispatch) => {
+  try {
+    await axios.delete(
+      `https://impossible-slippers-colt.cyclic.app/sprint/delete?id=${id}`
+    );
+    dispatch({ type: types.DELETE_SPRINT_SUCCESS, payload: id });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//delete task
+export const deleteTask = (id) => async (dispatch) => {
+  try {
+    await axios.delete(
+      `https://impossible-slippers-colt.cyclic.app/task/delete?id=${id}`
+    );
+    dispatch({ type: types.DELETE_TASK_SUCCESS, payload: id });
   } catch (error) {
     console.log(error);
   }

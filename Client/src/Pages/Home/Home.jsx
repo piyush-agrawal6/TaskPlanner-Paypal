@@ -5,12 +5,16 @@ import "./Home.css";
 import Task from "../../Components/Task/Task";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getSprint, getTask } from "../../Redux/auth/action";
+import { deleteSprint, getSprint, getTask } from "../../Redux/auth/action";
+
 const Home = () => {
   const auth = useSelector((store) => store.auth);
   const task = useSelector((store) => store.auth.task);
   const sprint = useSelector((store) => store.auth.sprint);
   const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(deleteSprint(id));
+  };
   useEffect(() => {
     dispatch(getTask(auth?.organization));
     dispatch(getSprint(auth?.organization));
@@ -35,7 +39,7 @@ const Home = () => {
                   <div>
                     <h4>{elem.name}</h4>
                     <div>
-                      <GiTrashCan />
+                      <GiTrashCan onClick={() => handleDelete(elem._id)} />
                     </div>
                   </div>
                   {task
@@ -47,9 +51,7 @@ const Home = () => {
               );
             })
           ) : (
-            <h3>
-              Please add some sprints and tasks to get stared. Thank you !
-            </h3>
+            <p>Please add some sprints and tasks to get started. Thank you !</p>
           )}
         </div>
       </div>

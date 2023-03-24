@@ -6,12 +6,12 @@ const initialState = {
   data: {
     isAuthenticated: !!TOKEN,
     token: TOKEN,
-    organization: "default",
     user: JSON.parse(localStorage.getItem("user")) || null,
-    task: [],
-    sprint: [],
-    allUsers: [],
   },
+  organization: "default",
+  task: [],
+  sprint: [],
+  allUsers: [],
 };
 export function authReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -65,6 +65,26 @@ export function authReducer(state = initialState, { type, payload }) {
     }
     case types.GET_TASK_SUCCESS: {
       return { ...state, task: payload };
+    }
+    case types.DELETE_SPRINT_SUCCESS: {
+      return {
+        ...state,
+        sprint: [
+          ...state.sprint.filter((elem) => {
+            return elem._id !== payload;
+          }),
+        ],
+      };
+    }
+    case types.DELETE_TASK_SUCCESS: {
+      return {
+        ...state,
+        task: [
+          ...state.task.filter((elem) => {
+            return elem._id !== payload;
+          }),
+        ],
+      };
     }
     default:
       return state;

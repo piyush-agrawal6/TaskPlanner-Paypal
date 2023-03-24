@@ -5,9 +5,7 @@
   overflow: scroll;
   text-align: center;
 }
-homeSection > h3 {
-  text-align: center;
-}
+
 .homeSection > div {
   display: inline-block;
   width: 300px;
