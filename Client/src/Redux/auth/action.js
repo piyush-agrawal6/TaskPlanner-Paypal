@@ -195,3 +195,20 @@ export const deleteTask = (id) => async (dispatch) => {
     console.log(error);
   }
 };
+
+//edit task
+export const editTask = (id, taskData) => async (dispatch) => {
+  try {
+    let data = await axios.put(
+      `https://impossible-slippers-colt.cyclic.app/task/update?taskid=${id}`,
+      taskData
+    );
+    console.log(data);
+    dispatch({
+      type: types.EDIT_TASK_SUCCESS,
+      payload: { item: data.data.task, id },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

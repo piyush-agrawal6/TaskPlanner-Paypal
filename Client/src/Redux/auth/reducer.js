@@ -43,6 +43,18 @@ export function authReducer(state = initialState, { type, payload }) {
         },
         organization: payload,
       };
+    case types.EDIT_TASK_SUCCESS:
+      return {
+        ...state,
+        task: [
+          ...state.task.map((elem) => {
+            if (elem._id === payload.id) {
+              return payload.item;
+            }
+            return elem;
+          }),
+        ],
+      };
     case types.AUTH_LOGOUT:
       localStorage.removeItem("token");
       return {
