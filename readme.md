@@ -1,5 +1,5 @@
 # Task Planner App
-This website is made for the user interaction only , where the user or patients can book appointments , can get their reports online , know the details about the hospital, Doctors and many more information...
+Task planner is a website where the user can login to there respective organization , can create tasks , sprints , assign task to to different members , edot and delete task and sprints.
 
 ## Tech Stack
 
@@ -8,7 +8,7 @@ This website is made for the user interaction only , where the user or patients 
 - **React**
 - **Redux Thunk**
 - **Axios**
-- **Bootstrap**
+- **Ant Designs**
 
 **Server:**
 
@@ -25,41 +25,34 @@ This website is made for the user interaction only , where the user or patients 
 
 ## Features
 
-- Creating appointments
-- Getting reports 
-- Doctor Information
+- Google login/signup
+- Creating tasks/sprints
+- Assigning tasks to members
 
 ## 🔗 Links
 
-Client - https://hms-user-side.netlify.app/
+Client - https://incredible-froyo-b0f5f2.netlify.app/
 
-Server - 
+Server - https://impossible-slippers-colt.cyclic.app/task
 
 ## Screenshots
 
-1.Home
+1. Login
 
+![Screenshot_4](https://user-images.githubusercontent.com/100460788/227710420-78d621fb-7848-4c5c-bb5e-47ca04e16e19.png)
 
-2.Doctors
+2. Task/Sprints
 
+![Screenshot_5](https://user-images.githubusercontent.com/100460788/227710424-efed66a9-02f6-4e80-90a5-0a6f39363d2a.png)
 
-3.Book Appointments
+3. Add Task/sprints
 
-
-4.Services
-
-
-5.Report
-
-
-6.Login
-
-
+![Screenshot_6](https://user-images.githubusercontent.com/100460788/227710428-648d9b5c-fb6b-470b-8483-c98f6463d004.png)
 
 
 ## Presentation
 
-Link - <a href="https://drive.google.com/file/d/1xwcSsjdl6QHnJ-JXl11moBAwSqSQFRjh/view?usp=sharing" alt="presentation">Drive</a>
+Link - <a href="https://drive.google.com/file/d/1JKWudA0N5fAfSqZ0UnC9hAf6I9UiJr0n/view?usp=share_link" alt="presentation">Drive</a>
 
 ##  Contributors
 
