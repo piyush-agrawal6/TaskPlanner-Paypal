@@ -24,41 +24,36 @@ app.post("/", async (req, res) => {
   }
 });
 
-// app.put("/", async (req, res) => {
-//   try {
-//     const { id, userId, quantity } = req.body;
-//     const cartItem = await Cart.findById(id);
-//     if (cartItem && cartItem.userId.toString() === userId) {
-//       const cart = await Cart.findByIdAndUpdate(
-//         id,
-//         { userId, productId: cartItem.productId, quantity },
-//         { new: true }
-//       )
-//         .populate("productId")
-//         .select("-userId");
-//       return res.status(200).send({ message: "Cart updated successfully" });
-//     } else {
-//       return res.status(404).send({ message: "Item does not exist in cart" });
-//     }
-//   } catch (error) {
-//     return res.status(404).send({ message: "Something went wrong" });
-//   }
-// });
-
-app.delete("/", async (req, res) => {
+app.delete("/delete", async (req, res) => {
   try {
-    const { id } = req.body;
-    const taskItem = await Task.findById(id);
-    if (taskItem) {
-      const task = await Task.findByIdAndDelete(id);
+    const id = req.query.id;
+    const sprintItem = await Task.findById(id);
+    if (sprintItem) {
+      await Task.findByIdAndDelete(id);
       return res.status(200).send({ message: `Task deleted successfully` });
     } else {
-      return res
-        .status(404)
-        .send({ message: "Task does not exist in tasklist" });
+      return res.send({ message: "Task does not exist in sprint list" });
     }
   } catch (error) {
-    return res.status(404).send({ message: "Something went wrong" });
+    return res.status(404).send({ message: error });
+  }
+});
+
+//update user
+app.put("/update", async (req, res) => {
+  let taskid = req.query.taskid;
+  let { id } = req.body;
+  let user = await User.findOne({ _id: id });
+  let data = { ...req.body };
+  if (id) {
+    data["assignee"] = user;
+  }
+  try {
+    await Task.findByIdAndUpdate(taskid, data);
+    let task = await Task.findOne({ _id: taskid });
+    return res.status(200).send({ message: "Task updated successfully", task });
+  } catch (error) {
+    return res.status(404).send({ error: error.message });
   }
 });
 
